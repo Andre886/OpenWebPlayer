@@ -1,0 +1,141 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+  }
+  
+  header {
+    background-color: #1DB954;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  header h1 {
+    color: white;
+    margin: 0;
+  }
+  
+  #app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+  }
+  
+  #player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 30px;
+    background-color: grey;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  #album-art-container {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  
+  #album-art {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  #song-info {
+    margin-bottom: 20px;
+  }
+  
+  #song-title,
+  #artist {
+    margin: 0;
+  }
+  
+  #controls .control-btn {
+    font-size: 20px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    margin: 10px;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  #controls .control-btn:hover {
+    transform: scale(1.2);
+  }
+  
+  #playlist {
+    text-align: center;
+    margin-top: 20px;
+    
+  }
+
+  #song-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  #song-list li {
+    margin: 5px;
+    cursor: pointer;
+    background-color: #f2f2f2;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    user-select: none; /* Disables text selection */
+  }
+
+  #song-list li:hover {
+    background-color: #e0e0e0;
+  }
+
+  .song-title {
+    font-weight: bold;
+    pointer-events: none;
+  }
+
+  .song-artist {
+    color: #666666;
+    pointer-events: none;
+  }
+  
+/* Aggiungi stile al nuovo player */
+#custom-player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #progress-bar {
+    width: 80%;
+    height: 8px;
+    background-color: #ccc;
+    border-radius: 4px;
+    margin-top: 10px;
+    overflow: hidden;
+  }
+  
+  #progress {
+    width: 0;
+    height: 100%;
+    background-color: #1DB954;
+    transition: width 0.3s ease;
+  }
+  
+  #time {
+    margin-top: 10px;
+  }
+  
+h2 {
+  color:white;
+}

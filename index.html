@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Player</title>
+  <link rel="icon" type="image/x-icon" href="logo.jpg">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    #dark-mode-toggle {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 24px;
+      color: white;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Open-Source Web Player</h1>
+  </header>
+  <div id="app">
+    <div id="player">
+      <div id="album-art-container">
+        <img id="album-art" src="logo.jpg" alt="Album Art">
+      </div>
+      <div id="song-info">
+        <h2 id="song-title">Title</h2>
+        
+      </div>
+      <audio id="audio-player">
+        <source src="" type="audio/mp3">
+      </audio>
+      <div id="progress-bar">
+        <div id="progress"></div>
+      </div>
+      <div id="time"></div>
+      <div id="controls">
+        <button id="play-btn" class="control-btn">&#9658;</button>
+        <button id="pause-btn" class="control-btn">&#10074;&#10074;</button>
+        <button id="stop-btn" class="control-btn">&#9724;</button>
+        <br>
+        <input type="range" id="volume-control" class="control-btn" min="0" max="1" step="0.01" value="1">
+      </div>
+    </div>
+    <div id="playlist">
+        <h2>Playlist</h2>
+        <ul id="song-list">
+          <li data-src="song1.mp3">
+            <span class="song-title">Song1</span>
+          </li>
+          
+          <li data-src="song2.mp3">
+            <span class="song-title">Song2</span>
+          </li>
+
+          <li data-src="song3.mp3">
+            <span class="song-title">Song3</span>
+          </li>
+
+
+
+
+        </ul>
+      </div>
+    <button onclick="toggleDarkMode()" id="dark-mode-toggle"><i class="fas fa-moon"></i></button>
+  </div>
+  
+  <script src="script.js"> </script>
+  <script>
+    function toggleDarkMode() {
+        var darkModeEnabled = document.body.classList.contains('dark-mode');
+        
+        if (darkModeEnabled) {
+            document.body.classList.remove('dark-mode');
+            removeDarkModeCSS();
+        } else {
+            document.body.classList.add('dark-mode');
+            addDarkModeCSS();
+        }
+    }
+
+    function addDarkModeCSS() {
+        var linkElement = document.createElement('link');
+        linkElement.rel = 'stylesheet';
+        linkElement.href = 'styledark.css';
+        linkElement.id = 'dark-mode-css';
+        document.head.appendChild(linkElement);
+    }
+
+    function removeDarkModeCSS() {
+        var darkModeCSS = document.getElementById('dark-mode-css');
+        if (darkModeCSS) {
+            darkModeCSS.remove();
+        }
+    }
+
+    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    if (darkModeMediaQuery.matches) {
+        document.body.classList.add('dark-mode');
+        addDarkModeCSS();
+    }
+  </script>
+</body>
+
+</html>
